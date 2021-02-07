@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuGeneral"
+        android:icon="@drawable/ic_baseline_list_alt_24"
+        android:title="@string/geral" />
+    <item
+        android:id="@+id/menuTechnology"
+        android:icon="@drawable/ic_baseline_smartphone_24"
+        android:title="@string/tecnologia" />
+    <item
+        android:id="@+id/menuBusiness"
+        android:icon="@drawable/ic_baseline_monetization_on_24"
+        android:title="@string/negocios" />
+    <item
+        android:id="@+id/menuHealth"
+        android:icon="@drawable/ic_baseline_health_and_safety_24"
+        android:title="@string/saude" />
+    <item
+        android:id="@+id/menuScience"
+        android:icon="@drawable/ic_baseline_science_24"
+        android:title="@string/ciencia" />
+</menu>
