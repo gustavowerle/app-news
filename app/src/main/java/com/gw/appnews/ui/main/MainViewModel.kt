@@ -1,4 +1,4 @@
-package com.gw.appnews.main
+package com.gw.appnews.ui.main
 
 import android.util.Log
 import android.view.MenuItem

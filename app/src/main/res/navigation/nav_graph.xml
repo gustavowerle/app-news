@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.gw.appnews.main.MainFragment"
+        android:name="com.gw.appnews.ui.main.MainFragment"
         android:label="main_fragment"
         tools:layout="@layout/main_fragment" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/newsFragment"
-        android:name="com.gw.appnews.news.NewsFragment"
+        android:name="com.gw.appnews.ui.newsDetails.NewsDetailsFragment"
         android:label="news_fragment"
         tools:layout="@layout/news_fragment" />
 </navigation>

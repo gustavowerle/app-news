@@ -1,12 +1,11 @@
-package com.gw.appnews
+package com.gw.appnews.ui
 
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-import com.androidnetworking.AndroidNetworking
+import com.gw.appnews.R
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.jar.Manifest
 

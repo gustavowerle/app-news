@@ -1,4 +1,4 @@
-package com.gw.appnews.news
+package com.gw.appnews.ui.newsDetails
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -8,9 +8,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.gw.appnews.R
 
-class NewsFragment : Fragment() {
+class NewsDetailsFragment : Fragment() {
 
-    private lateinit var viewModel: NewsViewModel
+    private lateinit var viewModel: NewsDetailsViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,6 +21,6 @@ class NewsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(NewsDetailsViewModel::class.java)
     }
 }
