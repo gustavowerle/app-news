@@ -5,10 +5,10 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface NewsService {
+interface NewsHTTPService {
     @GET("top-headlines?country=br")
     fun getNews(
-        @Query("category") category: String = "technology",
+        @Query("category") category: String,
         @Query("apiKey") apiKey: String = BuildConfig.NEWS_API_KEY
     ): Call<NewsResponse>
 }

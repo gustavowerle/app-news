@@ -12,11 +12,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 @InstallIn(ActivityComponent::class)
 class NewsModule {
     @Provides
-    fun provideNewsService(): NewsService {
+    fun provideNewsService(): NewsHTTPService {
         return Retrofit.Builder()
             .baseUrl(baseApiUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(NewsService::class.java);
+            .create(NewsHTTPService::class.java);
     }
 }

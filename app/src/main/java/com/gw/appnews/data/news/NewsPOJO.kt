@@ -7,5 +7,6 @@ data class NewsPOJO(
     val publishedAt: String,
     val sourcePOJO: NewsSourcePOJO,
     val title: String,
-    val urlToImage: String
+    val urlToImage: String,
+    val url: String
 )

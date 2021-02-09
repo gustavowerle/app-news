@@ -8,52 +8,59 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.gw.appnews.R
 import com.gw.appnews.data.news.NewsPOJO
-import com.gw.appnews.data.news.NewsService
+import com.gw.appnews.data.news.NewsHTTPService
+import com.gw.appnews.ui.news.NewsCategory
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class MainViewModel @ViewModelInject constructor(private val service: NewsService) : ViewModel() {
+class MainViewModel @ViewModelInject constructor(private val HTTPService: NewsHTTPService) : ViewModel() {
 
-    var newsPOJO: MutableLiveData<MutableList<NewsPOJO>> =
+    var newsList: MutableLiveData<MutableList<NewsPOJO>> =
         MutableLiveData(mutableListOf())
 
-    fun onNavigationItemSelected(item: MenuItem) : Boolean {
+    fun bootstrap() {
+        getNews(NewsCategory.GENERAL)
+    }
+
+    fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menuGeneral -> {
-                getNews("general")
+                getNews(NewsCategory.GENERAL)
                 return true
             }
             R.id.menuTechnology -> {
-                getNews("technology")
+                getNews(NewsCategory.TECHNOLOGY)
                 return true
             }
             R.id.menuBusiness -> {
-                getNews("business")
+                getNews(NewsCategory.BUSINESS)
                 return true
             }
             R.id.menuHealth -> {
-                getNews("health")
+                getNews(NewsCategory.HEALTH)
                 return true
             }
             R.id.menuScience -> {
-                getNews("science")
+                getNews(NewsCategory.SCIENCE)
                 return true
             }
         }
         return false
     }
 
-    private fun getNews(filter: String) {
+    fun getNews(filter: String) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                val result = service.getNews(filter).execute()
-                val currentList = newsPOJO.value ?: mutableListOf()
+                val result = HTTPService.getNews(category = filter).execute()
+                val currentList = newsList.value ?: mutableListOf()
                 currentList.addAll(result.body()!!.articles)
+                viewModelScope.launch(Dispatchers.Main) {
+                    newsList.value = currentList
+                }
                 Log.d("getNews", currentList.toString())
             } catch (e: Exception) {
                 Log.e("getNews", e.toString())
             }
         }
     }
-
 }
